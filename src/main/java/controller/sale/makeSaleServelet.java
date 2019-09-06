@@ -1,12 +1,10 @@
 package controller.sale;
 
+import bean.CustomerDaoBean;
 import bean.ProductDaoBean;
 import bean.ReceivingDaoBean;
 import bean.SaleDaoBean;
-import model.Product;
-import model.Receiving;
-import model.Sale;
-import model.User;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,19 +40,19 @@ public class makeSaleServelet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(product);
-        System.out.println(receiving);
-        if (receiving != null && product!=null) {
-
+        if (receiving != null) {
             qty = Integer.parseInt(req.getParameter("quantity"));
             customerName = req.getParameter("customerName");
             String userName = (String) req.getSession().getAttribute("username");
            user.setUserName(userName);
             Sale sale = new Sale(saleDate, qty, productId, product.getProductName(), receiving.getSellingPrice(), customerName, user.getUserName(), receiving.getProductId());
             SaleDaoBean saleDaoBean = new SaleDaoBean();
+            Customer customer = new Customer(customerName);
+            CustomerDaoBean customerDaoBean = new  CustomerDaoBean();
             try {
                 if (saleDaoBean.create(sale)) {
-                    resp.sendRedirect("/JAVAWEB/index.jsp");
+                    customerDaoBean.create(customer);
+                    resp.sendRedirect("displaySales");
                 }
             } catch (SQLException e) {
                 throw new ServletException("Error trying to Sell", e);
@@ -71,5 +69,3 @@ public class makeSaleServelet extends HttpServlet {
         req.getRequestDispatcher("/views/sale/make_sale.jsp").forward(req,resp);
     }
 }
-
-

@@ -1,3 +1,4 @@
+
 package filter;
 
 import javax.servlet.*;
@@ -7,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-@WebFilter()
+
+//@WebFilter(urlPatterns = "/displayS")
 public class LoginFilter implements Filter {
 
     @Override
@@ -15,16 +17,21 @@ public class LoginFilter implements Filter {
         HttpServletRequest request1 = (HttpServletRequest) request;
         HttpServletResponse response1 = (HttpServletResponse) response;
         HttpSession session = ((HttpServletRequest) request).getSession(false);
-        String loginURI = "/login";
+        String productURI = "/displayS";
 
         boolean isLoggedIn = session !=null && session.getAttribute("username") !=null;
-        boolean loginRequest = request1.getRequestURI().equals(loginURI);
+        boolean loginRequest = request1.getRequestURI().equals(productURI);
 
 if (isLoggedIn || loginRequest){
     chain.doFilter(request1,response1);
         }else {
-    response1.sendRedirect(loginURI);
+    response1.sendRedirect(productURI);
         }
+/*if(isLoggedIn){
+    response1.sendRedirect("/displayS");
+}else{
+    response1.sendRedirect("/views/login.jsp");
+}*/
     }
 
 }

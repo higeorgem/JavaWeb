@@ -29,7 +29,7 @@
 <!-- Login Form -->
 <form method ="post" action="login">
 <input type="text" id="uname" class="fadeIn first" name="uname" placeholder="Username"></br>
-<input type="password" id="pass" class="fadeIn second" name="pass" placeholder="password"></br>
+<input type="password" id="pass" class="fadeIn second" name="pass" placeholder="Password"></br>
 <input type="submit" class="fadeIn third" value="Log In">
 </form>
 

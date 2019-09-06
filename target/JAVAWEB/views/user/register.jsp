@@ -5,15 +5,15 @@
 <head>
     <meta charset="utf-8">
 
-<%--    <link rel="stylesheet" type="text/css" href="views/styles/style.css">--%>
+    <link rel="stylesheet" type="text/css" href="views/styles/style.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-    <title> Register</title>
+    <link rel="stylesheet" type="text/css" href="views/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="views/bootstrap/js/bootstrap.min.js"></script>
+    <title>Login</title>
 </head>
 <body>
 
@@ -30,8 +30,9 @@
         <form method ="post" action="register_user">
             <input type="text" id="userName" class="fadeIn first" name="userName" placeholder="Username"></br>
             <input type="password" id="userPassword" class="fadeIn second" name="userPassword" placeholder="password"></br>
-            <input type="submit" class="fadeIn third" value="Register">
+            <input type="submit" class="fadeIn third" value="Register"/>
         </form>
+        <a href="index.jsp" class="badge badge-primary fadeIn fourth">Back to Login</a>
 
         <!-- new user registration -->
         <%--<form id="formFooter">

@@ -19,19 +19,13 @@ public class CoreLogic extends HttpServlet {
     }
 
     @Override
-    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     }
 
-    public void auth(HttpRequest request) {
-
+    protected void validate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getParameter(String.valueOf(false));
+        req.getRequestDispatcher("login.jsp");
     }
-
-    public boolean userSession(HttpRequest request,HttpResponse response){
-        return false;
-    }
-public boolean userValidate(){
-        return false;
-}
 }
 

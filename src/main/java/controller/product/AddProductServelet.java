@@ -30,6 +30,8 @@ public class AddProductServelet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter printWriter = resp.getWriter();
+
             String productName = req.getParameter("productName");
             productName = productName.toUpperCase();
             if (!productName.toUpperCase().matches("[A-Z][A-Z]*[A-Z]?$")){
@@ -45,7 +47,7 @@ public class AddProductServelet extends HttpServlet {
                         resp.sendRedirect("displayS");
                     }
                 } catch (SQLException e) {
-                    throw new ServletException("<html><h4>Failed to Add a Product</h4></html>\n"+e);
+                    throw new ServletException("<script>alert('Error connecting!')</script>"+e);
                 }
             }
     }

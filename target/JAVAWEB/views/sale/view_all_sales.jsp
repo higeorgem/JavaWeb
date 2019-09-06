@@ -36,7 +36,7 @@
             <th scope="col">Selling Price</th>
             <th scope="col">Customer Name</th>
             <th scope="col">Cahier Name</th>
-            <th scope="col">cashier ID</th>
+<%--            <th scope="col">cashier ID</th>--%>
         </tr>
         </thead>
         <tbody>
@@ -49,7 +49,7 @@
                 <td>${sale.sellingPrice}</td>
                 <td>${sale.userName}</td>
                 <td>${sale.customerName}</td>
-                <td>${sale.userId}</td>
+<%--                <td>${sale.userId}</td>--%>
             </tr>
         </c:forEach>
         </tbody>

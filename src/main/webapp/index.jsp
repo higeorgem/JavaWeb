@@ -35,7 +35,6 @@
         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">PRODUCT</button>
         <div class="dropdown-menu">
             <a href="add_product" class="dropdown-item">Add Product</a>
-            <a href="edit_product" class="dropdown-item">Edit Product</a>
             <div class="dropdown-divider"></div>
             <a href="displayS" class="dropdown-item">View all Stock</a>
         </div>

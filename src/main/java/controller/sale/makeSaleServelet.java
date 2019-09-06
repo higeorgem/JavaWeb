@@ -28,6 +28,7 @@ public class makeSaleServelet extends HttpServlet {
         Receiving receiving = null;
         Product product = null;
         User user = new User();
+        PrintWriter printWriter = resp.getWriter();
 
         //user = (User) req.getAttribute("username");
 
@@ -53,6 +54,10 @@ public class makeSaleServelet extends HttpServlet {
                 if (saleDaoBean.create(sale)) {
                     customerDaoBean.create(customer);
                     resp.sendRedirect("displaySales");
+                }else{
+                    printWriter.write("<script>alert('Welcome!!!')</script>");
+                    resp.sendRedirect("displayR");
+
                 }
             } catch (SQLException e) {
                 throw new ServletException("Error trying to Sell", e);

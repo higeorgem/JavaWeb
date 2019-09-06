@@ -45,6 +45,8 @@ public class AddProductServelet extends HttpServlet {
                 try {
                     if(productDaoBean.create(product)){
                         resp.sendRedirect("displayS");
+                    }else {
+                        resp.sendRedirect("add_product");
                     }
                 } catch (SQLException e) {
                     throw new ServletException("<script>alert('Error connecting!')</script>"+e);

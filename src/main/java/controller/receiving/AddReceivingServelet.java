@@ -57,6 +57,8 @@ public class AddReceivingServelet extends HttpServlet {
             ReceivingDaoBean receivingDaoBean = new ReceivingDaoBean();
             try {
                 if(receivingDaoBean.create(receivedBatch)){
+                    resp.sendRedirect("displayR");
+                }else {
                     resp.sendRedirect("/JAVAWEB/index.jsp");
                 }
             } catch (SQLException e) {
